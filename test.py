@@ -1,6 +1,6 @@
 from coshint import coshint
 from expint import ei, expint
-import math
+from sinhint import sinhint
 import numpy as np
 import scipy
 
@@ -33,10 +33,19 @@ def test_expint():
     print("expected_y2 = ", expected_y2)
     assert np.allclose(y2, expected_y2, rtol=1e-3)
 
+def test_sinhint():
+    x = np.array([0, 1, 2, 3, 4], dtype=np.float64)
+    y = sinhint(x)
+    print("actual_y = ", y)
+    expected_y = scipy.special.shichi(x)[0]
+    print("expected_y = ", expected_y)
+    assert np.allclose(y, expected_y, rtol=1e-3)
+
 
 if __name__ == '__main__':
     # test_coshint()
     # test_ei()
-    test_expint()
+    # test_expint()
+    test_sinhint()
     
     
