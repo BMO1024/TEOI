@@ -1,5 +1,5 @@
 from coshint import coshint
-from ei import ei
+from expint import ei, expint
 import math
 import numpy as np
 import scipy
@@ -16,10 +16,27 @@ def test_ei():
     x = np.array([0, 1, 2, 3, 4], dtype=np.float64)
     y = ei(x)
     print("actual_y = ", y)
-    expected_y = scipy.special.expi(x)
+    expected_y = -scipy.special.expi(-x)
     print("expected_y = ", expected_y)
     assert np.allclose(y, expected_y, rtol=1e-3)
 
+def test_expint():
+    x = np.array([0, 1, 2, 3, 4], dtype=np.float64)
+    y1 = expint(1, x)
+    print("actual_y1 = ", y1)
+    expected_y1 = scipy.special.expn(1, x)
+    print("expected_y1 = ", expected_y1)
+    assert np.allclose(y1, expected_y1, rtol=1e-3)
+    y2 = expint(2, x)
+    print("actual_y2 = ", y2)
+    expected_y2 = scipy.special.expn(2, x)
+    print("expected_y2 = ", expected_y2)
+    assert np.allclose(y2, expected_y2, rtol=1e-3)
+
+
 if __name__ == '__main__':
-    test_coshint()
+    # test_coshint()
     # test_ei()
+    test_expint()
+    
+    

@@ -8,8 +8,7 @@ def integrand(t):
     return (np.cosh(t) - 1) / t
 
 def coshint(x):
-
-    # in case that x is a scalar
+    # x is a scalar
     if x.ndim == 0:
         if x == 0:
             return -np.inf
@@ -18,7 +17,7 @@ def coshint(x):
         else:
             raise ValueError("x must be non-negative")
 
-    # in case that x is a vector
+    # x is a vector
     if x.ndim == 1:
         chi = np.zeros_like(x, dtype=np.float64)
         for i, xi in enumerate(x):
@@ -30,7 +29,7 @@ def coshint(x):
                 raise ValueError("x must be non-negative")
         return chi
 
-    # in case that x is a matrix
+    # x is a matrix
     if x.ndim == 2:
         chi = np.zeros_like(x, dtype=np.float64)
         for i in range(x.shape[0]):
