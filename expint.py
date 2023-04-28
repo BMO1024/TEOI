@@ -10,7 +10,6 @@ def integrand_expint(t, n, x):
 
 def expint(*args):
     # One-argument exponential integral function
-
     if len(args) == 1:
         # x is a scalar
         x = args[0]
@@ -45,34 +44,37 @@ def expint(*args):
                     y[i, j] = quad(integrand_ei, xi, np.inf)[0]
             return y
 
-            
+    # Two-argument exponential integral function
     if len(args) == 2:
-        # Two-argument exponential integral function
         x = args[1]
         n = args[0]
 
-        # x is a scalar
-        if x.ndim == 0:
-            return quad(integrand_expint, 1, np.inf, args=(n, x))[0]
+        if n == 1:
+            return expint(x)
 
-        # x is a vector
-        if x.ndim == 1:
-            y = np.zeros_like(x, dtype=np.float64)
-            for i, xi in enumerate(x):
-                y[i] = quad(integrand_expint, 1, np.inf, args=(n, xi))[0]
-            return y
+        if n == 2:
+            # x is a scalar
+            if x.ndim == 0:
+                return quad(integrand_expint, 1, np.inf, args=(n, x))[0]
 
-        # x is a matrix
-        if x.ndim == 2:
-            y = np.zeros_like(x, dtype=np.float64)
-            for i in range(x.shape[0]):
-                for j in range(x.shape[1]):
-                    xi = x[i, j]
-                    y[i, j] = quad(integrand_expint, 1, np.inf, args=(n, xi))[0]
-            return y
+            # x is a vector
+            if x.ndim == 1:
+                y = np.zeros_like(x, dtype=np.float64)
+                for i, xi in enumerate(x):
+                    y[i] = quad(integrand_expint, 1, np.inf, args=(n, xi))[0]
+                return y
 
-        else:
-            raise ValueError("x must be a scalar, vector, or matrix")
+            # x is a matrix
+            if x.ndim == 2:
+                y = np.zeros_like(x, dtype=np.float64)
+                for i in range(x.shape[0]):
+                    for j in range(x.shape[1]):
+                        xi = x[i, j]
+                        y[i, j] = quad(integrand_expint, 1, np.inf, args=(n, xi))[0]
+                return y
+
+            else:
+                raise ValueError("x must be a scalar, vector, or matrix")
 
     else:
         raise ValueError("expint() takes 1 or 2 arguments")
