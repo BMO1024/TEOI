@@ -1,5 +1,6 @@
 from coshint import coshint
-from expint import ei, expint
+from expint import expint
+from ei import ei
 from sinhint import sinhint
 import numpy as np
 import scipy
@@ -44,8 +45,8 @@ def test_sinhint():
 
 if __name__ == '__main__':
     # test_coshint()
-    # test_ei()
-    # test_expint()
-    test_sinhint()
+    test_ei()
+    test_expint()
+    # test_sinhint()
     
     
