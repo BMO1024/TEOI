@@ -2,6 +2,7 @@ from coshint import coshint
 from expint import expint
 from ei import ei
 from sinhint import sinhint
+from eulergamma import eulergamma
 import numpy as np
 import scipy
 
@@ -42,11 +43,20 @@ def test_sinhint():
     print("expected_y = ", expected_y)
     assert np.allclose(y, expected_y, rtol=1e-3)
 
+def test_eulergamma():
+    y = eulergamma()
+    print("actual_y = ", y)
+    expected_y = -scipy.special.digamma(1)
+    print("expected_y = ", expected_y)
+    assert np.allclose(y, expected_y, rtol=1e-3)
+
+def 
 
 if __name__ == '__main__':
     # test_coshint()
-    test_ei()
-    test_expint()
+    # test_ei()
+    # test_expint()
     # test_sinhint()
+    test_eulergamma()
     
     
