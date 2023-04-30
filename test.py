@@ -4,6 +4,7 @@ from ei import ei
 from sinhint import sinhint
 from eulergamma import eulergamma
 from cosint import cosint
+from sinint import sinint
 
 import numpy as np
 import scipy
@@ -60,12 +61,20 @@ def test_cosint():
     print("expected_y = ", expected_y)
     assert np.allclose(y, expected_y, rtol=1e-3)
 
+def test_sinint():
+    x = np.array([0, 1, 2, 3, 4], dtype=np.float64)
+    y = sinint(x)
+    print("actual_y = ", y)
+    expected_y = scipy.special.sici(x)[0]
+    print("expected_y = ", expected_y)
+    assert np.allclose(y, expected_y, rtol=1e-3)
+
 if __name__ == '__main__':
     # test_coshint()
     # test_ei()
     # test_expint()
     # test_sinhint()
     # test_eulergamma()
-    test_cosint()
-    
+    # test_cosint()
+    test_sinint()
     
