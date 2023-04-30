@@ -1,15 +1,15 @@
 import numpy as np
 import scipy
 
-from Trigonometric_Integrals.functions.coshint import coshint
-from Trigonometric_Integrals.functions.expint import expint
-from Trigonometric_Integrals.functions.ei import ei
-from Trigonometric_Integrals.functions.sinhint import sinhint
-from Trigonometric_Integrals.functions.eulergamma import eulergamma
-from Trigonometric_Integrals.functions.cosint import cosint
-from Trigonometric_Integrals.functions.sinint import sinint
-from Trigonometric_Integrals.functions.logint import logint
-from Trigonometric_Integrals.functions.ssint import ssi
+from Trigonometric_Integrals.coshint import coshint
+from Trigonometric_Integrals.expint import expint
+from Trigonometric_Integrals.ei import ei
+from Trigonometric_Integrals.sinhint import sinhint
+from Trigonometric_Integrals.eulergamma import eulergamma
+from Trigonometric_Integrals.cosint import cosint
+from Trigonometric_Integrals.sinint import sinint
+from Trigonometric_Integrals.logint import logint
+from Trigonometric_Integrals.ssint import ssi
 
 def test_coshint():
     x = np.array([0, 1, 2, 3, 4], dtype=np.float64)

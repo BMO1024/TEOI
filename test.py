@@ -4,6 +4,8 @@ import numpy as np
 import scipy
     
 if __name__ == '__main__':
+
+    # testing 
     # test_coshint()
     # test_ei()
     # test_expint()
