@@ -27,15 +27,15 @@ def sinhint(x):
         return shi
 
     # x is a matrix
-    if x.ndim == 2:
-        shi = np.zeros_like(x, dtype=np.float64)
-        for i in range(x.shape[0]):
-            for j in range(x.shape[1]):
-                xi = x[i, j]
+    if x.ndim >= 2:
+            shi = np.zeros_like(x, dtype=np.float64)
+            for index in np.ndindex(x.shape[:-1]):
+                xi = x[index]
                 if xi == 0:
-                    shi[i, j] = 0
+                    shi[index] = 0
                 elif xi > 0:
-                    shi[i, j] = quad(integrand, 0, xi)[0]
+                    shi[index] = quad(integrand, 0, xi)[0]
                 else:
                     raise ValueError("x must be non-negative")
-        return shi
+            return shi
+        
