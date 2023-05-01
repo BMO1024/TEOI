@@ -1,7 +1,7 @@
 from Elliptic_Integrals.ellipke import ellipke
-from Elliptic_Integrals.ellipticCE import elliptic_integral_second_kind_CE
-from Elliptic_Integrals.ellipticCK import elliptic_integral_first_kind_CK
-from Elliptic_Integrals.ellipticCPi import elliptic_integral_third_kind_CPi
+from Elliptic_Integrals.ellipticCE import ellipticCE
+from Elliptic_Integrals.ellipticCK import ellipticCK
+from Elliptic_Integrals.ellipticCPi import ellipticCPi
 from Elliptic_Integrals.ellipticK import ellipticK
 from Elliptic_Integrals.ellipticE import ellipticE
 
@@ -27,7 +27,7 @@ def test_ellipticCE():
 
     m = np.array([0, 1/2, 1/4, 1])
 
-    actual_y = elliptic_integral_second_kind_CE(m)
+    actual_y = ellipticCE(m)
     print("actual_y = ", actual_y)
 
     n = 1 - m
@@ -39,7 +39,7 @@ def test_ellipticCK():
         
         m = np.array([0, 1/2, 1/4, 1])
     
-        actual_y = elliptic_integral_first_kind_CK(m)
+        actual_y = ellipticCK(m)
         print("actual_y = ", actual_y)
     
         n = 1 - m
@@ -50,7 +50,7 @@ def test_ellipticCK():
 def test_ellipticCPi():
 
     (n, m) = (np.array([-1, 0, 9/10, -1]), np.array([1/3, 1/2, 1, 0]))
-    actual_y = elliptic_integral_third_kind_CPi(n, m)
+    actual_y = ellipticCPi(n, m)
 
     print("actual_y = ", actual_y)
 
