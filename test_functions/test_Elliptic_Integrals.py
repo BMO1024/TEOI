@@ -1,6 +1,7 @@
 from Elliptic_Integrals.ellipke import elliptic_integral_first_kind
 from Elliptic_Integrals.ellipke import elliptic_integral_second_kind
 from Elliptic_Integrals.ellipticCE import elliptic_integral_second_kind_CE
+from Elliptic_Integrals.ellipticCK import elliptic_integral_first_kind_CK
 
 import numpy as np
 import scipy
@@ -34,4 +35,14 @@ def test_ellipticCE():
     print("expected_y = ", expected_y)
     assert np.allclose(actual_y, expected_y, rtol=1e-05, atol=1e-08, equal_nan=False)
 
+def test_ellipticCK():
+        
+        m = np.array([0, 1/2, 1/4, 1])
     
+        actual_y = elliptic_integral_first_kind_CK(m)
+        print("actual_y = ", actual_y)
+    
+        n = 1 - m
+        expected_y = scipy.special.ellipk(n)
+        print("expected_y = ", expected_y)
+        assert np.allclose(actual_y, expected_y, rtol=1e-05, atol=1e-08, equal_nan=False)  
