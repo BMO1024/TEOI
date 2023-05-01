@@ -5,7 +5,7 @@ import scipy
     
 if __name__ == '__main__':
 
-    # testing 
+    # testing Trigonometric_Integrals
     # test_coshint()
     # test_ei()
     # test_expint()
@@ -14,5 +14,8 @@ if __name__ == '__main__':
     # test_cosint()
     # test_sinint()
     # test_logint()
-    test_ssi()
+    # test_ssi()
+
+    # testing Elliptic_Integrals
+    test_ellipke()
     
