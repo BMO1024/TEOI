@@ -14,4 +14,4 @@ def elliptic_integral_second_kind(m):
     return quad_vec(integrand_second_kind, 0, np.pi/2, args=(m,))[0]
 
 def ellipke(n, m):
-    return elliptic_integral_first_kind(m), elliptic_integral_second_kind(m)
+    return elliptic_integral_first_kind(n), elliptic_integral_second_kind(m)
