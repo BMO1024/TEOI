@@ -21,4 +21,4 @@ if __name__ == '__main__':
     # test_ellipticCE()
     # test_ellipticCK()
     # test_ellipticCPi()
-    test_ellipticK()
+    # test_ellipticK()
