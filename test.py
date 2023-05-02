@@ -13,7 +13,7 @@ if __name__ == '__main__':
     # test_eulergamma()
     # test_cosint()
     # test_sinint()
-    # test_logint()
+    test_logint()
     # test_ssi()
 
     # testing Elliptic_Integrals
@@ -25,4 +25,4 @@ if __name__ == '__main__':
     # test_ellipticE()
     # test_ellipticF()
     # test_ellipticNome()
-    test_ellipticPi()
+    # test_ellipticPi()

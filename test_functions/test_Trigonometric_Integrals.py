@@ -72,21 +72,12 @@ def test_sinint():
     assert np.allclose(y, expected_y, rtol=1e-3)
 
 def test_logint():
-    # Test scalar input
-    x = np.array([1])
-    expected_output = 0.8378669409802087
-    
-    assert np.isclose(logint(x), expected_output)
-
-    # Test vector input
-    x = np.array([1, 2, 3])
-    expected_output = np.array([0.8378669409802087, 1.0451637801174924, 1.199675632006671])
-    assert np.allclose(logint(x), expected_output)
-
-    # Test matrix input
-    x = np.array([[1, 2], [3, 4]])
-    expected_output = np.array([[0.8378669409802087, 1.0451637801174924], [1.199675632006671, 1.357814674216707]])
-    assert np.allclose(logint(x), expected_output)
+    x = np.array([0, 1/4, 1/2, 1, 2, 10], dtype=np.float64)
+    y = logint(x)
+    print("actual_y = ", y)
+    expected_y = np.array([ 0.0000, -0.1187,-0.3787, -np.inf, 1.0452, 6.1656])
+    print("expected_y = ", expected_y)
+    assert np.allclose(y, expected_y, rtol=1e-3)
 
 def test_ssi():
     x = np.array([0, 1, 2, 3, 4], dtype=np.float64)
