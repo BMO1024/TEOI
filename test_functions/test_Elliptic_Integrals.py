@@ -6,6 +6,7 @@ from Elliptic_Integrals.ellipticK import ellipticK
 from Elliptic_Integrals.ellipticE import ellipticE
 from Elliptic_Integrals.ellipticF import ellipticF
 from Elliptic_Integrals.ellipticNome import ellipticNome
+from Elliptic_Integrals.ellipticPi import ellipticPi
 
 import numpy as np
 import scipy
@@ -113,3 +114,22 @@ def test_ellipticNome():
     expected_y = np.array([0, 0.0432, 1.0000])
     print("expected_y = ", expected_y)
     assert np.allclose(actual_y, expected_y, rtol=1e-03, atol=1e-08, equal_nan=False)
+
+def test_ellipticPi():
+
+    (n, m, phi) = (np.array([-2.3]), np.array([0]), np.pi/4)
+    actual_y1 = ellipticPi(n, phi, m)
+
+    print("actual_y1 = ", actual_y1)
+
+    expected_y1 = np.array([ 0.5877])
+    print("expected_y1 = ", expected_y1)
+    assert np.allclose(actual_y1, expected_y1, rtol=1e-03, atol=1e-08, equal_nan=False)
+
+    actual_y2 = ellipticPi(n, m)
+    print("actual_y2 = ", actual_y2)
+
+    expected_y2 = np.array([0.8646])
+    print("expected_y2 = ", expected_y2)
+    assert np.allclose(actual_y2, expected_y2, rtol=1e-03, atol=1e-08, equal_nan=False)
+
