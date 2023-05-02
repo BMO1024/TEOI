@@ -5,6 +5,7 @@ from Elliptic_Integrals.ellipticCPi import ellipticCPi
 from Elliptic_Integrals.ellipticK import ellipticK
 from Elliptic_Integrals.ellipticE import ellipticE
 from Elliptic_Integrals.ellipticF import ellipticF
+from Elliptic_Integrals.ellipticNome import ellipticNome
 
 import numpy as np
 import scipy
@@ -100,4 +101,15 @@ def test_ellipticF():
     expected_y = scipy.special.ellipkinc(phi, m)
     print("expected_y = ", expected_y)
 
+    assert np.allclose(actual_y, expected_y, rtol=1e-03, atol=1e-08, equal_nan=False)
+
+def test_ellipticNome():
+
+    m = np.array([0, 1/2, 1])
+
+    actual_y = ellipticNome(m)
+    print("actual_y = ", actual_y)
+
+    expected_y = np.array([0, 0.0432, 1.0000])
+    print("expected_y = ", expected_y)
     assert np.allclose(actual_y, expected_y, rtol=1e-03, atol=1e-08, equal_nan=False)
