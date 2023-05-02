@@ -17,10 +17,10 @@ if __name__ == '__main__':
     # test_ssi()
 
     # testing Elliptic_Integrals
-    test_ellipke()
+    # test_ellipke()
     # test_ellipticCE()
     # test_ellipticCK()
     # test_ellipticCPi()
-    # test_ellipticK()
+    test_ellipticK()
     # test_ellipticE()
-    # test_ellipticF()
+    test_ellipticF()

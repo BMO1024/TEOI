@@ -91,7 +91,7 @@ def test_ellipticE():
 
 def test_ellipticF():
     
-    m = np.array([0, 1/2, 1/3, 1], dtype=np.float64)
+    m = np.array([0, 1/2, 1/4, 1], dtype=np.float64)
     phi = np.pi/2
 
     actual_y = ellipticF(phi, m)
