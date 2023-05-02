@@ -4,6 +4,7 @@ from Elliptic_Integrals.ellipticCK import ellipticCK
 from Elliptic_Integrals.ellipticCPi import ellipticCPi
 from Elliptic_Integrals.ellipticK import ellipticK
 from Elliptic_Integrals.ellipticE import ellipticE
+from Elliptic_Integrals.ellipticF import ellipticF
 
 import numpy as np
 import scipy
@@ -88,3 +89,15 @@ def test_ellipticE():
 
     assert np.allclose(actual_y1, expected_y1, rtol=1e-05, atol=1e-08, equal_nan=False)
 
+def test_ellipticF():
+    
+    m = np.array([0, 1/2, 1/3, 1], dtype=np.float64)
+    phi = np.pi/2
+
+    actual_y = ellipticF(phi, m)
+    print("actual_y = ", actual_y)
+
+    expected_y = scipy.special.ellipkinc(phi, m)
+    print("expected_y = ", expected_y)
+
+    assert np.allclose(actual_y, expected_y, rtol=1e-03, atol=1e-08, equal_nan=False)
