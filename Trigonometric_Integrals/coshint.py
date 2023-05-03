@@ -1,5 +1,5 @@
 import numpy as np
-from scipy.integrate import quad
+from scipy.integrate import quad, quad_vec
 
 #Euler-Mascheroni constant
 _EULER = 0.5772156649015329  
@@ -8,6 +8,9 @@ def integrand(t):
     return (np.cosh(t) - 1) / t
 
 def coshint(x):
+    # convert x to an array
+    x = np.atleast_1d(x)
+    result = np.zeros_like(x, dtype=np.float64)
     # x is a scalar
     if x.ndim == 0:
         if x == 0:

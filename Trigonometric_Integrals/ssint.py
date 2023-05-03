@@ -6,7 +6,8 @@ from scipy.integrate import quad_vec
 def integrand(t):
     return np.sin(t) / t
 
-def ssi(x):
+def ssint(x):
+    x = np.atleast_1d(x)
     # x is a scalar
     if x.ndim == 0:
         if x == 0:

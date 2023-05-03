@@ -9,10 +9,11 @@ from Trigonometric_Integrals.eulergamma import eulergamma
 from Trigonometric_Integrals.cosint import cosint
 from Trigonometric_Integrals.sinint import sinint
 from Trigonometric_Integrals.logint import logint
-from Trigonometric_Integrals.ssint import ssi
+from Trigonometric_Integrals.ssint import ssint
 
 def test_coshint():
     x = np.array([0, 1, 2, 3, 4], dtype=np.float64)
+    # x = 1
     y = coshint(x)
     print("actual_y = ", y)
     expected_y = scipy.special.shichi(x)[1]
@@ -81,7 +82,7 @@ def test_logint():
 
 def test_ssi():
     x = np.array([0, 1, 2, 3, 4], dtype=np.float64)
-    y = ssi(x)
+    y = ssint(x)
     print("actual_y = ", y)
     expected_y = scipy.special.sici(x)[0] - np.pi/2
     print("expected_y = ", expected_y)

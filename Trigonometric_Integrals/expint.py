@@ -13,6 +13,7 @@ def expint(*args):
     if len(args) == 1:
         # x is a scalar
         x = args[0]
+        x = np.atleast_1d(x)
         if x.ndim == 0:
             if x == 0:
                 return np.inf

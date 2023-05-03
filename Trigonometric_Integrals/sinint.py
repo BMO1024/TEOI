@@ -1,8 +1,4 @@
 # Sine integral function
-# Cosine integral function
-import math
-import numpy as np
-import scipy.special
 
 import numpy as np
 from scipy.integrate import quad
@@ -11,6 +7,7 @@ def integrand(t):
     return np.sin(t) / t
 
 def sinint(x):
+    x = np.atleast_1d(x)
     # x is a scalar
     if x.ndim == 0:
         if x == 0:

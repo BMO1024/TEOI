@@ -1,6 +1,7 @@
 # Complete and incomplete elliptic integrals of the third kind
 import numpy as np
 from scipy.integrate import quad_vec
+from functools import partial
 
 def integrand_third_kind(x, n, m):
     return 1/((1-n*np.sin(x)**2)*np.sqrt(1-m*np.sin(x)**2))
@@ -16,5 +17,4 @@ def ellipticPi(*args):
         m = args[2]
     else:
         raise Exception("Invalid number of arguments")
-    return quad_vec(integrand_third_kind, 0, phi, args=(n, m))[0]
-    
+    return quad_vec(partial(integrand_third_kind, n=n, m=m), 0, phi)[0]    

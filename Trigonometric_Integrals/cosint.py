@@ -1,8 +1,4 @@
 # Cosine integral function
-import math
-import numpy as np
-import scipy.special
-
 import numpy as np
 from scipy.integrate import quad
 
@@ -13,6 +9,7 @@ def integrand(t):
     return (np.cos(t) - 1) / t
 
 def cosint(x):
+    x = np.atleast_1d(x)
     # x is a scalar
     if x.ndim == 0:
         if x == 0:

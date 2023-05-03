@@ -5,6 +5,7 @@ def integrand(t):
     return np.sinh(t) / t
 
 def sinhint(x):
+    x = np.atleast_1d(x)
     # x is a scalar
     if x.ndim == 0:
         if x == 0:
