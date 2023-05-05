@@ -44,5 +44,3 @@ def cosint(x):
                     raise ValueError("x must be non-negative")
             return cosint
         
-
-    
